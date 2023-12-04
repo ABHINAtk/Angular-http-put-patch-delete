@@ -11,7 +11,6 @@ export class NewRecordComponent implements OnInit {
   newRecordForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
-    // Initialize the form in the constructor
     this.newRecordForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -28,11 +27,9 @@ export class NewRecordComponent implements OnInit {
       this.userService.createUser(newUser).subscribe(
         response => {
           console.log('User created successfully:', response);
-          // Additional logic if needed
         },
         error => {
           console.error('Error creating user:', error);
-          // Handle error appropriately
         }
       );
     }

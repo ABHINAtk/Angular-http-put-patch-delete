@@ -5,9 +5,9 @@ import { FetchDetailsComponent } from './fetch-details/fetch-details.component';
 import { from } from 'rxjs';
 
  const routes: Routes = [
-  { path: 'new-record', component: NewRecordComponent },
+  { path: '', component: NewRecordComponent },
   { path: 'fetch-details', component: FetchDetailsComponent },
-  { path: '', redirectTo: '/new-record', pathMatch: 'full' },
+  
 ];
 
 @NgModule({

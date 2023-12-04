@@ -1,15 +1,18 @@
 <div>
     <h2>User Details</h2>
     <div *ngFor="let user of users">
-      <button (click)="onSelectUser(user.id)">View Details</button>
-      {{ user.name }} - {{ user.email }}
-      <button (click)="onDeleteUser(user.id)">Delete</button>
-      <button (click)="onUpdateUser(user.id, { name: 'Updated Name' })">Update</button>
+     
+      {{ user.name }} - {{ user.email }}<br>
+     <!-- <button (click)="onSelectUser(user.id)" class="btn btn-primary">View Details</button>-->
+      <button (click)="onDeleteUser(user.id)" class="btn btn-primary margin-left">Delete</button>
+      <button (click)="onUpdateUser(user.id, { name: 'Updated Name' })" class="btn btn-primary margin-left">Update</button>
+      <button type="button" (click)="patchUserData(user.id)" class="btn btn-primary margin-left">Patch User</button>
+
     </div>
   
-    <div *ngIf="selectedUserId !== null">
+   <!-- <div *ngIf="selectedUserId !== null">
       <app-user-detail [userId]="selectedUserId"></app-user-detail>
-    </div>
+    </div>-->
   </div>
   
   

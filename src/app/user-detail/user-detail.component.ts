@@ -7,7 +7,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  @Input() userId: number | undefined;  // Initialize userId as a number or undefined
+  @Input() userId: number | undefined;  
   user: any;
 
   constructor(private userService: UserService) { }
@@ -20,7 +20,6 @@ export class UserDetailComponent implements OnInit {
         },
         error => {
           console.error('Error fetching user details:', error);
-          // Handle error appropriately
         }
       );
     }

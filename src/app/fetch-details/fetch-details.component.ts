@@ -19,7 +19,7 @@ export class FetchDetailsComponent implements OnInit {
       },
       error => {
         console.error('Error fetching users:', error);
-        // Handle error appropriately
+        
       }
     );
   }
@@ -32,13 +32,13 @@ export class FetchDetailsComponent implements OnInit {
     this.userService.deleteUser(userId).subscribe(
       response => {
         console.log('User deleted successfully:', response);
-        // Update the users list after deletion
+        
         this.users = this.users.filter(user => user.id !== userId);
         this.selectedUserId = null;
       },
       error => {
         console.error('Error deleting user:', error);
-        // Handle error appropriately
+        
       }
     );
   }
@@ -47,7 +47,7 @@ export class FetchDetailsComponent implements OnInit {
     this.userService.updateUser(userId, updatedUser).subscribe(
       response => {
         console.log('User updated successfully:', response);
-        // Update the users list with the updated user
+        
         const index = this.users.findIndex(user => user.id === userId);
         if (index !== -1) {
           this.users[index] = response;
@@ -56,9 +56,15 @@ export class FetchDetailsComponent implements OnInit {
       },
       error => {
         console.error('Error updating user:', error);
-        // Handle error appropriately
+        
       }
     );
+  }
+  patchUserData(userId: number) {
+    const patchData = { name: 'Updated Name' }; 
+    this.userService.patchUser(userId, patchData).subscribe(response => {
+      console.log('User patched successfully:', response);
+    });
   }
 }
 
