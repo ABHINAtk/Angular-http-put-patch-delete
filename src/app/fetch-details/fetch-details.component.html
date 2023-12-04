@@ -1,0 +1,15 @@
+<div>
+    <h2>User Details</h2>
+    <div *ngFor="let user of users">
+      <button (click)="onSelectUser(user.id)">View Details</button>
+      {{ user.name }} - {{ user.email }}
+      <button (click)="onDeleteUser(user.id)">Delete</button>
+      <button (click)="onUpdateUser(user.id, { name: 'Updated Name' })">Update</button>
+    </div>
+  
+    <div *ngIf="selectedUserId !== null">
+      <app-user-detail [userId]="selectedUserId"></app-user-detail>
+    </div>
+  </div>
+  
+  

@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NewRecordComponent } from './new-record/new-record.component';
+import { FetchDetailsComponent } from './fetch-details/fetch-details.component';
+import { from } from 'rxjs';
 
-const routes: Routes = [];
+ const routes: Routes = [
+  { path: 'new-record', component: NewRecordComponent },
+  { path: 'fetch-details', component: FetchDetailsComponent },
+  { path: '', redirectTo: '/new-record', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
